@@ -1,0 +1,367 @@
+/* =========================================================
+   Design tokens
+   ========================================================= */
+:root {
+  --color-bg: #eef1f6;
+  --color-surface: #ffffff;
+  --color-ink: #1c2333;
+  --color-ink-soft: #5b6478;
+  --color-line: #dfe4ee;
+
+  --color-primary: #3b4fd9;
+  --color-primary-dark: #2c3bb0;
+  --color-active: #1e8e5a;
+  --color-active-bg: #e4f6ec;
+  --color-inactive: #b45309;
+  --color-inactive-bg: #fdf1e2;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fdecec;
+
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(28, 35, 51, 0.06), 0 8px 24px -12px rgba(28, 35, 51, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+.navbar {
+  background: var(--color-ink);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.navbar-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+.home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.dashboard-header {
+  margin-bottom: 28px;
+}
+
+.dashboard-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.batch-status {
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: var(--color-primary-dark);
+}
+
+.batch-status-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 16px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+/* =========================================================
+   Form
+   ========================================================= */
+.student-form {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.form-field input {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: #fbfcfe;
+}
+
+.form-field input:focus {
+  border-color: var(--color-primary);
+}
+
+.field-error {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.btn {
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  justify-self: start;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  opacity: 0.8;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink-soft);
+  border: 1px dashed var(--color-line);
+}
+
+.btn-ghost:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink-soft);
+}
+
+/* =========================================================
+   Student grid + cards (styled like ID badges)
+   ========================================================= */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card-wrapper {
+  height: 100%;
+}
+
+.student-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 18px 18px 18px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 5px solid var(--color-primary);
+}
+
+.student-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.student-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-active {
+  background: var(--color-active-bg);
+  color: var(--color-active);
+}
+
+.status-inactive {
+  background: var(--color-inactive-bg);
+  color: var(--color-inactive);
+}
+
+.student-detail {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.detail-label {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.active-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-active);
+}
+
+.performance-note {
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--color-ink-soft);
+}
+
+.student-card-actions {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Empty state + error fallback
+   ========================================================= */
+.empty-state {
+  border: 1px dashed var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  color: var(--color-ink-soft);
+  background: var(--color-surface);
+}
+
+.error-fallback {
+  border: 1px solid var(--color-danger);
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 640px) {
+  .navbar-inner {
+    padding: 14px 18px;
+  }
+
+  .home {
+    padding: 24px 16px 48px;
+  }
+
+  .student-form {
+    max-width: 100%;
+  }
+
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+}
